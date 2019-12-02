@@ -667,6 +667,31 @@
         }
       }
     },
+    "shared-utils-ast": {
+      "root": "libs/shared/utils-ast",
+      "sourceRoot": "libs/shared/utils-ast/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/utils-ast/tsconfig.lib.json",
+              "libs/shared/utils-ast/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/shared/utils-ast/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/utils-ast/jest.config.js",
+            "tsConfig": "libs/shared/utils-ast/tsconfig.spec.json"
+          }
+        }
+      }
+    },
     "testing": {
       "projectType": "library",
       "root": "libs/testing",
@@ -2170,6 +2195,32 @@
             "jestConfig": "components/radio/jest.config.js",
             "tsConfig": "components/radio/tsconfig.spec.json",
             "setupFile": "components/radio/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "schematics": {
+      "projectType": "library",
+      "root": "components/schematics",
+      "sourceRoot": "components/schematics/src",
+      "prefix": "dt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "components/schematics/tsconfig.lib.json",
+              "components/schematics/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!components/schematics/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "components/schematics/jest.config.js",
+            "tsConfig": "components/schematics/tsconfig.spec.json"
           }
         }
       },
