@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+export * from './ast';
+export * from './get-matching-files-from-tree';
+export * from './get-package-version-from-package-json';
 export * from './json';
 export * from './read-file-from-tree';
-export * from './get-package-version-from-package-json';

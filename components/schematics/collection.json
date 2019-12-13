@@ -6,15 +6,10 @@
       "factory": "./src/ng-add/index",
       "schema": "./src/ng-add/schema.json"
     },
-    "migration-v5": {
-      "version": "5",
-      "description": "Updates Dynatrace Angular Components to v5",
-      "factory": "./ng-update/index#updateToV5"
-    },
-    "ng-post-update": {
-      "description": "Prints out results after ng-update.",
-      "factory": "./ng-update/index#postUpdate",
-      "private": true
+    "update-5.0.0": {
+      "version": "5.0.0",
+      "description": "Updates from the old @dynatrace/angular-components to the new @dynatrace/barista-components",
+      "factory": "./src/ng-update/update-5.0.0/index"
     }
   }
 }

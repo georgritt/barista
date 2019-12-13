@@ -13,11 +13,5 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Rule, chain, Tree } from '@angular-devkit/schematics';
-import * as ts from 'typescript';
-import { extname } from 'path';
-import { renameImportsRule } from './rules';
 
-export default function(): Rule {
-  return chain([renameImportsRule()]);
-}
+export * from './rename-imports-rule';

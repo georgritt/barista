@@ -27,7 +27,7 @@ import { removeDependencies } from './rules/remove-dependencies';
 import { addDependencies } from './rules/add-dependencies';
 import { NodeDependency } from './rules/add-package-json-dependency';
 import { join } from 'path';
-import { getWorkspace, updateWorkspace } from '../utils/workspace';
+import { updateWorkspace } from '../utils/workspace';
 
 const ERROR_MISSING_DEPENDENCY = (dependency: string) => `
 'The dependency ${dependency} is not installed in your workplace!'`;

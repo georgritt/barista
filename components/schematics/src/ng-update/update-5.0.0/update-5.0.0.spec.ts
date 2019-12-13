@@ -15,18 +15,32 @@
  */
 
 import { UnitTestTree } from '@angular-devkit/schematics/testing';
-import { createTestApp } from '../../testing';
+import {
+  createEmptyWorkspace,
+  runSchematic,
+  addFixtureToTree,
+} from '../../testing';
+import { readFileFromTree, readJsonAsObjectFromTree } from '../../utils';
+import { Tree } from '@angular-devkit/schematics';
 
 // Testing of Dynatrace Ng-Add Schematic
 describe('ng-add schematic for dynatrace barista-components', () => {
   let tree: UnitTestTree;
 
   beforeEach(async () => {
-    tree = await createTestApp();
+    tree = await createEmptyWorkspace(Tree.empty());
   });
 
   it('should update imports of @dynatrace/angular-components to barista-components in package.json', async () => {
-    console.log(tree.files);
+    await addFixtureToTree(
+      tree,
+      'component-with-old-import.fixture',
+      'src/app/test.component.ts',
+    );
+    // console.log(readFileFromTree(tree, '/src/app/test.component.ts'));
+
+    await runSchematic('update-5.0.0', {}, tree);
+    console.log(readFileFromTree(tree, '/src/app/test.component.ts'));
     // await testNgAdd(tree);
     // expect(readJsonAsObjectFromTree(tree, '/package.json')).toMatchObject(
     //   expect.objectContaining({

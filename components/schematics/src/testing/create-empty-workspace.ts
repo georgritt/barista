@@ -18,32 +18,25 @@ import { Tree } from '@angular-devkit/schematics';
 import { UnitTestTree } from '@angular-devkit/schematics/testing';
 import { runExternalSchematic } from './run-schematic';
 
-export async function createTestApp(): Promise<UnitTestTree> {
-  const tree = Tree.empty();
+export async function createEmptyWorkspace(tree: Tree): Promise<UnitTestTree> {
   const schemaOptions = {
     name: 'test-workspace',
-    style: 'scss',
-    // directory: '/p',
-    npmScope: '@testScope',
+    directory: '/',
     skipInstall: true,
     skipGit: true,
     commit: false,
+    inlineStyle: true,
+    inlineTemplate: true,
+    skipTests: true,
+    version: '8.3.19',
   };
-  const workspaceTree = await runExternalSchematic(
-    '@nrwl/workspace',
-    'workspace',
+
+  return runExternalSchematic(
+    '@schematics/angular',
+    'ng-new',
     schemaOptions,
     tree,
   );
-  return workspaceTree;
-  // return runExternalSchematic(
-  //   '@nrwl/angular',
-  //   'application',
-  //   {
-  //     name: 'my-app',
-  //   },
-  //   workspaceTree,
-  // );
 }
 
 // interface TestCaseSetup {
