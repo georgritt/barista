@@ -35,6 +35,7 @@ const BLOCKLIST: string[] = [
   'select-groups-example',
   'select-value-example',
   'select-with-icons-example',
+  'select-custom-value-template-example',
 
   // Disabled the filter field tests, because their `combobox` role does not
   // fulfil all requirements of a combobox.
@@ -52,6 +53,12 @@ const BLOCKLIST: string[] = [
   'filter-field-infinite-data-depth-example',
   'quick-filter-default-example',
   'quick-filter-custom-show-more-example',
+
+  // Combobox a11y test are also disabled
+  // for similar reasons as the select and filter field
+  // are disabled.
+  'combobox-simple-example',
+  'combobox-custom-option-height-example',
 ];
 
 DT_DEMOS_EXAMPLE_NAV_ITEMS.forEach((component) => {

@@ -17,11 +17,18 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'dt-example-info-group-default',
-  templateUrl: 'indicator-default-example.html',
+  selector: 'dt-example-select-custom-value-template-example',
+  templateUrl: './select-custom-value-template-example.html',
+  styles: [
+    'dt-option div, ::ng-deep .dt-select-trigger .dt-select-value { display: flex; align-items: center; }',
+    '.dt-select-value-template span, dt-option span { display: flex; height: 15px; width: 15px; margin-right: 5px; border-radius: 2px; }',
+  ],
 })
-export class DtExampleIndicatorDefault {
-  shown: boolean = true;
-
-  color: 'warning' | 'error' | 'recovered' = 'error';
+export class DtExampleSelectCustomValueTemplate {
+  selectedValue: { value: string; viewValue: string };
+  colors = [
+    { viewValue: 'Red', value: 'red' },
+    { viewValue: 'Blue', value: 'blue' },
+    { viewValue: 'Green', value: 'green' },
+  ];
 }

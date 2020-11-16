@@ -14,16 +14,16 @@
  * limitations under the License.
  */
 
-import { Selector } from 'testcafe';
+import { Component } from '@angular/core';
 
-export const combobox = Selector('.dt-combobox');
-export const comboboxInput = Selector(
-  '.dt-autocomplete-trigger.dt-combobox-input',
-);
-export const comboboxOverlayPane = Selector('.cdk-overlay-pane');
-
-export const option = comboboxOverlayPane.find('.dt-option');
-
-export const loadingIndicator = Selector(
-  '.dt-combobox-postfix.dt-combobox-spinner',
-);
+/**
+ * Allows the user to customize the trigger that is displayed when the select has a value.
+ */
+@Component({
+  selector: 'dt-select-value-template',
+  template: '<ng-content></ng-content>',
+  host: {
+    class: 'dt-select-value-template',
+  },
+})
+export class DtSelectValueTemplate {}

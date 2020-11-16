@@ -14,16 +14,22 @@
  * limitations under the License.
  */
 
-import { Selector } from 'testcafe';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ViewEncapsulation,
+} from '@angular/core';
 
-export const combobox = Selector('.dt-combobox');
-export const comboboxInput = Selector(
-  '.dt-autocomplete-trigger.dt-combobox-input',
-);
-export const comboboxOverlayPane = Selector('.cdk-overlay-pane');
-
-export const option = comboboxOverlayPane.find('.dt-option');
-
-export const loadingIndicator = Selector(
-  '.dt-combobox-postfix.dt-combobox-spinner',
-);
+@Component({
+  selector: 'dt-<%= dasherize(name) %>',
+  templateUrl: '<%= dasherize(name) %>.html',
+  styleUrls: ['<%= dasherize(name) %>.scss'],
+  host: {
+    class: 'dt-<%= dasherize(name) %>',
+  },
+  encapsulation: ViewEncapsulation.Emulated,
+  exportAs: 'dt<%= capitalize(name) %>',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class Dt<%= capitalize(name) %> {
+}

@@ -16,3 +16,4 @@
 
 export * from './src/select-module';
 export * from './src/select';
+export * from './src/select-value-template';
